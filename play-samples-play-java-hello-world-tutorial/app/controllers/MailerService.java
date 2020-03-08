@@ -30,8 +30,8 @@ public class MailerService extends Controller{
   public Result sendEmail(String emailReceive , String message , Http.Request request) {
     Email email = new Email()
       .setSubject("This is a test from play Framework")
-      .setFrom("nkoachristophe@gmail.com")
-      .addTo("nkoachristophe@gmail.com")
+      .setFrom("aa@gmail.com")
+      .addTo("bb@gmail.com")
       // sends text
       .setBodyText("------")
       .setBodyHtml("<html><body><p>"+ "Hi!<br> " +emailReceive+ " sent you the following message : <br><h2>" + message + "</h2></p></body></html>");
