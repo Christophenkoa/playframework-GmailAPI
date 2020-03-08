@@ -1,0 +1,45 @@
+@import models.User
+@import play.mvc.Http.Request
+
+    @(addMessageForm : Form[User])(implicit request: Request, messages: play.i18n.Messages) 
+
+        <!DOCTYPE html>
+        <html>
+         <head>
+         <title>Form page</title>
+         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/form.css")">
+         </head>
+         <body>
+
+        <h1>WELCOME TO OUR REGISTRATION PLATFORM</h1>
+
+
+        @import helper._
+
+        @helper.form(action = routes.HomeController.sentMessage()) {
+        @helper.CSRF.formField
+        @helper.inputText(addMessageForm("email"))
+        @helper.inputText(addMessageForm("message"))
+
+        <input type="submit" class="btn-primary" value="send">
+
+        }
+
+@if(request.flash.data.contains("danger")) {
+    <h1>@request.flash.get("danger") </h1>
+}
+
+@if(request.flash.data.contains("success")) {
+    <h1>@request.flash.get("success") </h1>
+}
+
+<!--@if(addMessageForm .hasGlobalErrors) {
+    <p class="error">
+        @for(error <- addMessageForm .globalErrors) {
+            <p>@error.format(messages)</p>
+        }
+    </p>
+}-->
+    </body>
+    </html>
+
