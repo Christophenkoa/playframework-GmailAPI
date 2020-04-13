@@ -1,2 +1,2 @@
 # playframework-GmailAPI
-sample projet using Gmail API in play Framework
+sample play framework projet using Gmail API in play Framework
